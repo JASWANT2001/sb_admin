@@ -4,10 +4,14 @@ import axios from "axios";
 
 function UserList() {
   const [employees, setEmployees] = useState([]);
+  const [loading, setLoading] = useState(true);
   async function GetData() {
     try {
-      const employeeList = await axios.get("https://sb-admin-backend.onrender.com");
+      const employeeList = await axios.get(
+        "https://sb-admin-backend.onrender.com"
+      );
       setEmployees([...employeeList.data]);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -45,71 +49,75 @@ function UserList() {
           </h6>
           <div className="card-body">
             <div className="table-responsive">
-              <table
-                className="table table-bordered"
-                id="dataTable"
-                width="100%"
-                cellspacing="0"
-              >
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                    <th>Action</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  {employees.map((employee) => {
-                    return (
-                      <tr key={employee.id}>
-                        <td>{employee.username}</td>
-                        <td> {employee.position}</td>
-                        <td>{employee.office}</td>
-                        <td>{employee.dob}</td>
-                        <td>{employee.startdate}</td>
-                        <td>{employee.salary}</td>
-                        <td>
-                          <Link
-                            to={`/view-user/${employee._id}`}
-                            className="btn btn-info "
-                          >
-                            View
-                          </Link>
-                          <Link
-                            to={`/edit-user/${employee._id}`}
-                            className="btn btn-warning ml-2"
-                          >
-                            Edit
-                          </Link>
-                          <button
-                            onClick={() => {
-                              handleDelete(employee._id);
-                            }}
-                            className="btn btn-danger ml-2"
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+              {loading ? (
+                <h3>Loading.....</h3>
+              ) : (
+                <table
+                  className="table table-bordered"
+                  id="dataTable"
+                  width="100%"
+                  cellspacing="0"
+                >
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    {employees.map((employee) => {
+                      return (
+                        <tr key={employee.id}>
+                          <td>{employee.username}</td>
+                          <td> {employee.position}</td>
+                          <td>{employee.office}</td>
+                          <td>{employee.dob}</td>
+                          <td>{employee.startdate}</td>
+                          <td>{employee.salary}</td>
+                          <td>
+                            <Link
+                              to={`/view-user/${employee._id}`}
+                              className="btn btn-info "
+                            >
+                              View
+                            </Link>
+                            <Link
+                              to={`/edit-user/${employee._id}`}
+                              className="btn btn-warning ml-2"
+                            >
+                              Edit
+                            </Link>
+                            <button
+                              onClick={() => {
+                                handleDelete(employee._id);
+                              }}
+                              className="btn btn-danger ml-2"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              )}
             </div>
           </div>
         </div>
