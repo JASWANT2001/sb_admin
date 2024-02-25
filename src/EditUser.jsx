@@ -6,6 +6,7 @@ import axios from "axios";
 function EditUser() {
   const params = useParams();
   const [employee, setEmloyee] = useState();
+  const [loading, setLoading] = useState(true);
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -61,8 +62,9 @@ function EditUser() {
       let empData = await axios.get(
         `https://sb-admin-backend.onrender.com/${params.id}`
       );
-      delete empData.data._id
+      delete empData.data._id;
       setEmloyee(empData.data);
+      setLoading(false);
       formik.setValues(empData.data);
     }
     fetchData();
@@ -70,77 +72,85 @@ function EditUser() {
 
   return (
     <>
-      <div className="container-fluid">
-        <form onSubmit={formik.handleSubmit}>
-          <div className="row">
-            <div className="col-lg-4">
-              <label>Name</label>
-              <input
-                type="text"
-                className="form-control"
-                name="username"
-                value={formik.values.username}
-                onChange={formik.handleChange}
-              ></input>
-            </div>
-            <div className="col-lg-4">
-              <label>Position</label>
-              <input
-                type="text"
-                className="form-control"
-                name="position"
-                value={formik.values.position}
-                onChange={formik.handleChange}
-              ></input>
-            </div>
-            <div className="col-lg-4">
-              <label>Office</label>
-              <input
-                type="text"
-                className="form-control"
-                name="office"
-                value={formik.values.office}
-                onChange={formik.handleChange}
-              ></input>
-            </div>
+      {loading ? (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
           </div>
-          <div className="row">
-            <div className="col-lg-4">
-              <label>Age</label>
-              <input
-                type="date"
-                className="form-control"
-                name="dob"
-                value={formik.values.dob}
-                onChange={formik.handleChange}
-              ></input>
+        </div>
+      ) : (
+        <div className="container-fluid">
+          <form onSubmit={formik.handleSubmit}>
+            <div className="row">
+              <div className="col-lg-4">
+                <label>Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="username"
+                  value={formik.values.username}
+                  onChange={formik.handleChange}
+                ></input>
+              </div>
+              <div className="col-lg-4">
+                <label>Position</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="position"
+                  value={formik.values.position}
+                  onChange={formik.handleChange}
+                ></input>
+              </div>
+              <div className="col-lg-4">
+                <label>Office</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="office"
+                  value={formik.values.office}
+                  onChange={formik.handleChange}
+                ></input>
+              </div>
             </div>
-            <div className="col-lg-4">
-              <label>Start date</label>
-              <input
-                type="date"
-                className="form-control"
-                name="startdate"
-                value={formik.values.startdate}
-                onChange={formik.handleChange}
-              ></input>
+            <div className="row">
+              <div className="col-lg-4">
+                <label>Age</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  name="dob"
+                  value={formik.values.dob}
+                  onChange={formik.handleChange}
+                ></input>
+              </div>
+              <div className="col-lg-4">
+                <label>Start date</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  name="startdate"
+                  value={formik.values.startdate}
+                  onChange={formik.handleChange}
+                ></input>
+              </div>
+              <div className="col-lg-4">
+                <label>Salary</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="salary"
+                  value={formik.values.salary}
+                  onChange={formik.handleChange}
+                ></input>
+              </div>
+              <div className="col-lg-12 mt-4">
+                <button className="btn btn-primary">Submit</button>
+              </div>
             </div>
-            <div className="col-lg-4">
-              <label>Salary</label>
-              <input
-                type="text"
-                className="form-control"
-                name="salary"
-                value={formik.values.salary}
-                onChange={formik.handleChange}
-              ></input>
-            </div>
-            <div className="col-lg-12 mt-4">
-              <button className="btn btn-primary">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
+      )}
     </>
   );
 }
