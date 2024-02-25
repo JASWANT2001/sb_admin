@@ -50,7 +50,11 @@ function UserList() {
           <div className="card-body">
             <div className="table-responsive">
               {loading ? (
-                <h3>Loading.....</h3>
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
               ) : (
                 <table
                   className="table table-bordered"
