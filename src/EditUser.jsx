@@ -50,7 +50,12 @@ function EditUser() {
     onSubmit: async (values) => {
       await axios.put(
         `https://sb-admin-backend.onrender.com/${params.id}`,
-        values
+        values,
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
       );
       // console.log(values)
       alert("Data Updated");
@@ -60,7 +65,12 @@ function EditUser() {
   useEffect(() => {
     async function fetchData() {
       let empData = await axios.get(
-        `https://sb-admin-backend.onrender.com/${params.id}`
+        `https://sb-admin-backend.onrender.com/${params.id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
       );
       delete empData.data._id;
       setEmloyee(empData.data);

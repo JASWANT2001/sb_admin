@@ -47,7 +47,11 @@ function CreateUser() {
 
     onSubmit: async (values) => {
       try {
-        await axios.post("https://sb-admin-backend.onrender.com/", values);
+        await axios.post("https://sb-admin-backend.onrender.com/", values, {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        });
         console.log(values);
         alert("Data Posted");
       } catch (error) {

@@ -11,7 +11,12 @@ function ViewUser() {
     let fetchData = async () => {
       try {
         let employee = await axios.get(
-          `https://sb-admin-backend.onrender.com/${params.id}`
+          `https://sb-admin-backend.onrender.com/${params.id}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          }
         );
         setEmployeeDetail(employee.data);
         setLoading(false);
@@ -23,8 +28,7 @@ function ViewUser() {
   }, []);
   return (
     <div>
-      {
-      loading ? (
+      {loading ? (
         <div className="d-flex justify-content-center">
           <div className="spinner-border" role="status">
             <span className="sr-only">Loading...</span>

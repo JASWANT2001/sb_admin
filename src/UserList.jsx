@@ -27,7 +27,11 @@ function UserList() {
 
   let handleDelete = async (id) => {
     try {
-      await axios.delete(`https://sb-admin-backend.onrender.com/${id}`);
+      await axios.delete(`https://sb-admin-backend.onrender.com/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      });
       alert("Data Deleted");
       GetData();
     } catch (error) {
