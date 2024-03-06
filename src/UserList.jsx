@@ -8,7 +8,12 @@ function UserList() {
   async function GetData() {
     try {
       const employeeList = await axios.get(
-        "https://sb-admin-backend.onrender.com"
+        "https://sb-admin-backend.onrender.com",
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
       );
       setEmployees([...employeeList.data]);
       setLoading(false);
