@@ -15,7 +15,7 @@ function SideBar() {
             <hr className="sidebar-divider my-0" />
 
             <li className="nav-item active">
-                <Link className="nav-link" to="/dashboard">
+                <Link className="nav-link" to="/portal/dashboard">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></Link>
             </li>
@@ -27,7 +27,7 @@ function SideBar() {
             </div>
 
             <li className="nav-item">
-                <Link className="nav-link collapsed" to="/user-list" data-toggle="collapse" data-target="#collapseTwo"
+                <Link className="nav-link collapsed" to="/portal/user-list" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i className="fas fa-fw fa-cog"></i>
                     <span>Users</span>
@@ -42,7 +42,7 @@ function SideBar() {
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link collapsed" to="/products" data-toggle="collapse" data-target="#collapseUtilities"
+                <Link className="nav-link collapsed" to="/portal/products" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i className="fas fa-fw fa-wrench"></i>
                     <span>Products</span>

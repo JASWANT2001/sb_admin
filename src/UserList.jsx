@@ -35,7 +35,7 @@ function UserList() {
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 className="h3 mb-0 text-gray-800">Users List</h1>
         <Link
-          to="/create-user"
+          to="/portal/create-user"
           className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
         >
           <i className="fas fa-download fa-sm text-white-50"></i> Create User
@@ -96,13 +96,13 @@ function UserList() {
                           <td>{employee.salary}</td>
                           <td>
                             <Link
-                              to={`/view-user/${employee._id}`}
+                              to={`/portal/view-user/${employee._id}`}
                               className="btn btn-info "
                             >
                               View
                             </Link>
                             <Link
-                              to={`/edit-user/${employee._id}`}
+                              to={`/portal/edit-user/${employee._id}`}
                               className="btn btn-warning ml-2"
                             >
                               Edit
