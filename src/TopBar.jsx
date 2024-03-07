@@ -261,7 +261,6 @@ function TopBar() {
         </li>
       </ul>
     </nav>
-  );
 }
 
 export default TopBar;
