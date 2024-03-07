@@ -48,17 +48,22 @@ function EditUser() {
       return errors;
     },
     onSubmit: async (values) => {
-      await axios.put(
-        `https://sb-admin-backend.onrender.com/${params.id}`,
-        values,
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
-      // console.log(values)
-      alert("Data Updated");
+      try {
+        await axios.put(
+          `https://sb-admin-backend.onrender.com/${params.id}`,
+          values,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        // console.log(values)
+        alert("Data Updated");
+      } catch (error) {
+        console.log(error);
+        alert("Somehting went wrong");
+      }
     },
   });
 
