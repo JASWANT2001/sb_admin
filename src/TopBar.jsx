@@ -1,14 +1,14 @@
 import React from "react";
-import { useNavigate as Navigate } from "react-router-dom";
+import { useNavigate as navigate } from "react-router-dom";
 
 function TopBar() {
-    
+
   let handlelogout = () => {
     localStorage.removeItem("token");
-    Navigate("/");
+    navigate("/");
   };
 
-  return (
+  return 
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <button
         id="sidebarToggleTop"
