@@ -1,12 +1,41 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import axios from "axios";
 
 function Register() {
+  const formik = useFormik({
+    initialValues: {
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      repeatPassword: "",
+    },
+    validate: (values) => {
+      let errors = {};
+      if (values.password !== values.repeatPassword) {
+        errors.password = "Password and Repeat Password are not same";
+      }
+      return errors;
+    },
+    onSubmit: async (values) => {
+      try {
+        const registerData = await axios.post(
+          "https://sb-admin-beta.vercel.app/register",
+          values
+        );
+        console.log(registerData.data.message);
+      } catch (error) {
+        console.log(error.response.data.message);
+      }
+    },
+  });
   let navigate = useNavigate();
   let alreadyHaveAccount = () => {
     navigate("/");
   };
- 
+
   return (
     <>
       <div class="container">
@@ -19,14 +48,17 @@ function Register() {
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                   </div>
-                  <form class="user">
-                    <div class="form-group row">
+                  <form class="user" onSubmit={formik.handleSubmit}>
+                    <div className="form-group row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
                         <input
                           type="text"
                           class="form-control form-control-user"
                           id="exampleFirstName"
                           placeholder="First Name"
+                          name="firstname"
+                          value={formik.values.firstname}
+                          onChange={formik.handleChange}
                         />
                       </div>
                       <div class="col-sm-6">
@@ -35,6 +67,9 @@ function Register() {
                           class="form-control form-control-user"
                           id="exampleLastName"
                           placeholder="Last Name"
+                          name="lastname"
+                          value={formik.values.lastname}
+                          onChange={formik.handleChange}
                         />
                       </div>
                     </div>
@@ -44,6 +79,9 @@ function Register() {
                         class="form-control form-control-user"
                         id="exampleInputEmail"
                         placeholder="Email Address"
+                        name="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
                       />
                     </div>
                     <div class="form-group row">
@@ -53,6 +91,9 @@ function Register() {
                           class="form-control form-control-user"
                           id="exampleInputPassword"
                           placeholder="Password"
+                          name="password"
+                          value={formik.values.password}
+                          onChange={formik.handleChange}
                         />
                       </div>
                       <div class="col-sm-6">
@@ -61,17 +102,22 @@ function Register() {
                           class="form-control form-control-user"
                           id="exampleRepeatPassword"
                           placeholder="Repeat Password"
+                          name="repeatPassword"
+                          value={formik.values.repeatPassword}
+                          onChange={formik.handleChange}
                         />
+                        {formik.getFieldMeta("repeatPassword").touched &&
+                        formik.errors.password ? (
+                          <span style={{ color: "red", fontSize: 12 }}>
+                            {formik.errors.password}
+                          </span>
+                        ) : null}
                       </div>
                     </div>
                     <br />
-                    <a
-                      href="login.html"
-                      class="btn btn-primary btn-user btn-block"
-                    >
+                    <button class="btn btn-primary btn-user btn-block">
                       Register Account
-                    </a>
-                
+                    </button>
                   </form>
                   <br />
                   <hr />
