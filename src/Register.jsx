@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
-import { ToastContent, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
@@ -42,7 +42,7 @@ function Register() {
 
   return (
     <>
-      <ToastContent />
+      <ToastContainer />
       <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
