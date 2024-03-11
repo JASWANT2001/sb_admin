@@ -25,9 +25,9 @@ function Register() {
           "https://sb-admin-backend.onrender.com/register",
           values
         );
-        // console.log(registerData.data);
+        console.log(registerData.data.message);
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       }
     },
   });
