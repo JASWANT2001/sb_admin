@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
+import { ToastContent, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
   const formik = useFormik({
@@ -25,7 +27,9 @@ function Register() {
           "https://sb-admin-backend.onrender.com/register",
           values
         );
-        console.log(registerData.data.message);
+        toast.success(registerData.data.message, {
+          position: "top-center",
+        });
       } catch (error) {
         console.log(error.response.data.message);
       }
@@ -38,6 +42,7 @@ function Register() {
 
   return (
     <>
+      <ToastContent />
       <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
