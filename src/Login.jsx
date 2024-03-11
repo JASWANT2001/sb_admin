@@ -18,7 +18,7 @@ function Login() {
           "https://sb-admin-backend.onrender.com/login",
           values
         );
-        alert(response.data.message);
+        console.log(response.data);
         localStorage.setItem("token", response.data.token);
         navigate("/portal/dashboard");
       } catch (error) {
