@@ -22,12 +22,12 @@ function Register() {
     onSubmit: async (values) => {
       try {
         const registerData = await axios.post(
-          "https://sb-admin-beta.vercel.app/register",
+          "https://sb-admin-backend.onrender.com/register",
           values
         );
-        console.log(registerData.data.message);
+        // console.log(registerData.data);
       } catch (error) {
-        console.log(error.response.data.message);
+        console.log(error);
       }
     },
   });
