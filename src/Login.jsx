@@ -18,8 +18,8 @@ function Login() {
           "https://sb-admin-backend.onrender.com/login",
           values
         );
-        localStorage.setItem("token", response.data.token);
         alert(response.data.message);
+        localStorage.setItem("token", response.data.token);
         navigate("/portal/dashboard");
       } catch (error) {
         console.log(error);
