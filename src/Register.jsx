@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  let navigate = useNavigate();
+  let alreadyHaveAccount = () => {
+    navigate("/");
+  };
+ 
   return (
     <>
       <div class="container">
@@ -58,27 +64,16 @@ function Register() {
                         />
                       </div>
                     </div>
+                    <br />
                     <a
                       href="login.html"
                       class="btn btn-primary btn-user btn-block"
                     >
                       Register Account
                     </a>
-                    <hr />
-                    <a
-                      href="index.html"
-                      class="btn btn-google btn-user btn-block"
-                    >
-                      <i class="fab fa-google fa-fw"></i> Register with Google
-                    </a>
-                    <a
-                      href="index.html"
-                      class="btn btn-facebook btn-user btn-block"
-                    >
-                      <i class="fab fa-facebook-f fa-fw"></i> Register with
-                      Facebook
-                    </a>
+                
                   </form>
+                  <br />
                   <hr />
                   <div class="text-center">
                     <a class="small" href="forgot-password.html">
@@ -86,9 +81,9 @@ function Register() {
                     </a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="login.html">
+                    <button class="btn btn-link" onClick={alreadyHaveAccount}>
                       Already have an account? Login!
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

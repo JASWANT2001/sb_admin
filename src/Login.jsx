@@ -19,15 +19,17 @@ function Login() {
           values
         );
         localStorage.setItem("token", response.data.token);
+        alert(response.data.message);
         navigate("/portal/dashboard");
       } catch (error) {
         console.log(error);
+        alert("Something went Wrong");
       }
     },
   });
 
-  let handleLogin = (values) => {
-    // console.log(values);
+  let createAccount = () => {
+    navigate("/register");
   };
   return (
     <>
@@ -61,7 +63,7 @@ function Login() {
                             type="password"
                             class="form-control form-control-user"
                             id="exampleInputPassword"
-                            placeholder="Password"
+                            placeholder="Enter Password"
                             name="password"
                             value={LoginForm.values.password}
                             onChange={LoginForm.handleChange}
@@ -85,23 +87,15 @@ function Login() {
                         <button
                           href="index.html"
                           class="btn btn-primary btn-user btn-block"
-                          onClick={() => handleLogin}
                         >
                           Login
                         </button>
-                        <hr />
+
                         <a
                           href="index.html"
                           class="btn btn-google btn-user btn-block"
                         >
                           <i class="fab fa-google fa-fw"></i> Login with Google
-                        </a>
-                        <a
-                          href="index.html"
-                          class="btn btn-facebook btn-user btn-block"
-                        >
-                          <i class="fab fa-facebook-f fa-fw"></i> Login with
-                          Facebook
                         </a>
                       </form>
                       <hr />
@@ -110,10 +104,14 @@ function Login() {
                           Forgot Password?
                         </a>
                       </div>
+
                       <div class="text-center">
-                        <a class="small" href="register.html">
+                        <button
+                          class="btn btn-link btn-user btn-block"
+                          onClick={createAccount}
+                        >
                           Create an Account!
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
