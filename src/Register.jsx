@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
+  
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -30,6 +31,7 @@ function Register() {
         toast.success(registerData.data.message, {
           position: "top-center",
         });
+        navigate("/");
       } catch (error) {
         console.log(error.response.data.message);
       }

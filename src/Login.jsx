@@ -20,10 +20,12 @@ function Login() {
           "https://sb-admin-backend.onrender.com/login",
           values
         );
+        toast.success(response.data.message, {
+          position: "top-center",
+        });
         localStorage.setItem("token", response.data.token);
         navigate("/portal/dashboard");
       } catch (error) {
-        // alert(error.response.data.message);
         toast.error(error.response.data.message, {
           position: "top-center",
         });
@@ -99,7 +101,8 @@ function Login() {
                           href="index.html"
                           className="btn btn-google btn-user btn-block"
                         >
-                          <i className="fab fa-google fa-fw"></i> Login with Google
+                          <i className="fab fa-google fa-fw"></i> Login with
+                          Google
                         </a>
                       </form>
                       <hr />

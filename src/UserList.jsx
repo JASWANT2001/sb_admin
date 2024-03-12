@@ -43,7 +43,7 @@ function UserList() {
   return (
     <>
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 className="h3 mb-0 text-gray-800">Users List</h1>
+        <h1 className="h3 mb-0 text-gray-800">Students List</h1>
         <Link
           to="/portal/create-user"
           className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
@@ -54,9 +54,6 @@ function UserList() {
 
       <div className="card shadow mb-4">
         <div className="card-header py-3">
-          <h6 className="m-0 font-weight-bold text-primary">
-            DataTables Example
-          </h6>
           <div className="card-body">
             <div className="table-responsive">
               {loading ? (
@@ -83,17 +80,6 @@ function UserList() {
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                      <th>Action</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
                     {employees.map((employee) => {
                       return (

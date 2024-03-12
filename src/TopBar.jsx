@@ -74,7 +74,7 @@ function TopBar() {
         <div className="topbar-divider d-none d-sm-block"></div>
 
         <li className="nav-item dropdown no-arrow">
-          <button className="btn btn-danger" onClick={handlelogout}>
+          <button className="btn btn-outline-danger" onClick={handlelogout}>
             Logout
           </button>
         </li>
