@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 function UserList() {
   const [employees, setEmployees] = useState([]);
@@ -19,7 +20,9 @@ function UserList() {
       setLoading(false);
     } catch (error) {
       console.log(error);
-      alert("Something went wrong");
+      toast.danger("Something Went Wrong", {
+        position: "top-center",
+      });
     }
   }
   useEffect(() => {
@@ -33,7 +36,9 @@ function UserList() {
           Authorization: localStorage.getItem("token"),
         },
       });
-      alert("Data Deleted");
+      toast.success("User Deleted Successfully", {
+        position: "top-center",
+      });
       GetData();
     } catch (error) {
       console.log(error);
@@ -42,13 +47,14 @@ function UserList() {
 
   return (
     <>
+      <ToastContainer />
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 className="h3 mb-0 text-gray-800">Students List</h1>
+        <h1 className="h3 mb-0 text-gray-800">Employee Directory</h1>
         <Link
           to="/portal/create-user"
           className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
         >
-          <i className="fas fa-download fa-sm text-white-50"></i> Create User
+          Create New User
         </Link>
       </div>
 
@@ -73,7 +79,7 @@ function UserList() {
                     <tr>
                       <th>Name</th>
                       <th>Position</th>
-                      <th>Office</th>
+                      <th>Location</th>
                       <th>Age</th>
                       <th>Start date</th>
                       <th>Salary</th>
