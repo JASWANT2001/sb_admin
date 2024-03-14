@@ -2,7 +2,7 @@ import React from "react";
 import { formik, useFormik } from "formik";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer, Bounce } from "react-toastify";
 
 function CreateUser() {
   const formik = useFormik({
@@ -81,10 +81,26 @@ function CreateUser() {
         console.log(values);
         toast.success("User Successfully Created", {
           position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
         });
       } catch (error) {
         toast.danger("User Not Created", {
           position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
         });
         console.log(error);
       }
