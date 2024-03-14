@@ -47,19 +47,19 @@ function ViewUser() {
               <div className="row">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Name</b>
+                    <h6 className="h4 mb-0 text-gray-800">Full Name</h6>
                   </label>
                   <div>{employeeDetail?.username}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Designation</b>
+                    <h6 className="h4 mb-0 text-gray-800">Designation</h6>
                   </label>
                   <div>{employeeDetail?.position}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Work PLace</b>
+                    <h6 className="h4 mb-0 text-gray-800">Work Place </h6>
                   </label>
                   <div>{employeeDetail?.office}</div>
                 </div>
@@ -67,19 +67,19 @@ function ViewUser() {
               <div className="row mt-4">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Age</b>
+                    <h6 className="h4 mb-0 text-gray-800">Age</h6>
                   </label>
                   <div>{employeeDetail?.dob}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Start Date</b>
+                    <h6 className="h4 mb-0 text-gray-800">Start Date</h6>
                   </label>
                   <div>{employeeDetail?.startdate}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Salary</b>
+                    <h6 className="h4 mb-0 text-gray-800">Salary</h6>
                   </label>
                   <div>{employeeDetail?.salary}</div>
                 </div>
@@ -87,20 +87,20 @@ function ViewUser() {
               <div className="row mt-4">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Email Address</b>
+                    <h6 className="h4 mb-0 text-gray-800">Email Address</h6>
                   </label>
 
                   <div>{employeeDetail?.email}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Contact Number</b>
+                    <h6 className="h4 mb-0 text-gray-800">Contact Number</h6>
                   </label>
                   <div>{employeeDetail?.number}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Location</b>
+                    <h6 className="h4 mb-0 text-gray-800">Location</h6>
                   </label>
                   <div>{employeeDetail?.location}</div>
                 </div>
@@ -108,26 +108,26 @@ function ViewUser() {
               <div className="row mt-4">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>State</b>
+                    <h6 className="h4 mb-0 text-gray-800">State</h6>
                   </label>
                   <div>{employeeDetail?.state}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>Country</b>
+                    <h6 className="h4 mb-0 text-gray-800">Country</h6>
                   </label>
                   <div>{employeeDetail?.country}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <b>ZipCode</b>
+                    <h6 className="h4 mb-0 text-gray-800">ZipCode</h6>
                   </label>
                   <div>{employeeDetail?.zipcode}</div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mb-4">
             <Link className="btn btn-secondary" to="/portal/user-list">
               Back
             </Link>
