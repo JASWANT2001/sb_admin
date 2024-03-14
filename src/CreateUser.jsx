@@ -71,7 +71,7 @@ function CreateUser() {
       return errors;
     },
 
-    onSubmit: async (values) => {
+    onSubmit: async (values, reset) => {
       try {
         await axios.post("https://sb-admin-backend.onrender.com/", values, {
           headers: {
@@ -90,6 +90,7 @@ function CreateUser() {
           theme: "colored",
           transition: Bounce,
         });
+        reset.resetForm();
       } catch (error) {
         toast.danger("User Not Created", {
           position: "top-center",
@@ -143,9 +144,11 @@ function CreateUser() {
                         value={formik.values.username}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.username}
-                      </span>
+                      {formik.getFieldMeta("username").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.username}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Designation</label>
@@ -156,9 +159,11 @@ function CreateUser() {
                         value={formik.values.position}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.position}
-                      </span>
+                      {formik.getFieldMeta("position").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.position}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Work Place</label>
@@ -169,9 +174,11 @@ function CreateUser() {
                         value={formik.values.office}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.office}
-                      </span>
+                      {formik.getFieldMeta("office").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.office}
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                   <div className="row mt-4">
@@ -184,7 +191,11 @@ function CreateUser() {
                         value={formik.values.dob}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>{formik.errors.dob}</span>
+                      {formik.getFieldMeta("dob").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.dob}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Start date</label>
@@ -195,9 +206,11 @@ function CreateUser() {
                         value={formik.values.startdate}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.startdate}
-                      </span>
+                      {formik.getFieldMeta("startdate").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.startdate}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Salary</label>
@@ -208,9 +221,11 @@ function CreateUser() {
                         value={formik.values.salary}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.salary}
-                      </span>
+                      {formik.getFieldMeta("salary").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.salary}
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                   <div className="row mt-5">
@@ -223,9 +238,11 @@ function CreateUser() {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.email}
-                      </span>
+                      {formik.getFieldMeta("email").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.email}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Contact Number</label>
@@ -236,9 +253,11 @@ function CreateUser() {
                         value={formik.values.number}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.number}
-                      </span>
+                      {formik.getFieldMeta("number").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.number}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Current Location</label>
@@ -249,9 +268,11 @@ function CreateUser() {
                         value={formik.values.location}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.location}
-                      </span>
+                      {formik.getFieldMeta("location").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.location}
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                   <div className="row mt-4">
@@ -264,9 +285,11 @@ function CreateUser() {
                         value={formik.values.state}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.state}
-                      </span>
+                      {formik.getFieldMeta("state").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.state}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Country </label>
@@ -277,9 +300,11 @@ function CreateUser() {
                         value={formik.values.country}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.country}
-                      </span>
+                      {formik.getFieldMeta("country").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.country}
+                        </span>
+                      ) : null}
                     </div>
                     <div className="col-lg-4">
                       <label>Zip Code </label>
@@ -290,9 +315,11 @@ function CreateUser() {
                         value={formik.values.zipcode}
                         onChange={formik.handleChange}
                       ></input>
-                      <span style={{ color: "red" }}>
-                        {formik.errors.zipcode}
-                      </span>
+                      {formik.getFieldMeta("zipcode").touched ? (
+                        <span style={{ color: "red" }}>
+                          {formik.errors.zipcode}
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                   <div className="row">
