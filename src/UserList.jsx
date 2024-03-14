@@ -52,7 +52,7 @@ function UserList() {
         <h1 className="h3 mb-0 text-gray-800">Employee Directory</h1>
         <Link
           to="/portal/create-user"
-          className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+          className="btn btn-primary"
         >
           Create New User
         </Link>

@@ -35,13 +35,20 @@ function ViewUser() {
           </div>
         </div>
       ) : (
-        <div>
-          <div>{employeeDetail?.username}</div>
-          <div>{employeeDetail?.position}</div>
-          <div>{employeeDetail?.office}</div>
-          <div>{employeeDetail?.dob}</div>
-          <div>{employeeDetail?.startdate}</div>
-          <div>{employeeDetail?.salary}</div>
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+              View User
+            </h6>
+          </div>
+          <div class="card-body">
+            <div>{employeeDetail?.username}</div>
+            <div>{employeeDetail?.position}</div>
+            <div>{employeeDetail?.office}</div>
+            <div>{employeeDetail?.dob}</div>
+            <div>{employeeDetail?.startdate}</div>
+            <div>{employeeDetail?.salary}</div>
+          </div>
         </div>
       )}
     </div>
