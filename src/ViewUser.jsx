@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ViewUser() {
   const params = useParams();
@@ -44,14 +45,16 @@ function ViewUser() {
           <div class="card-body">
             <div className="row">
               <div className="col-lg-4">
-                <div>
-                  <b>Name:</b> {employeeDetail?.username}
-                </div>
+                <label className="form-label">
+                  <b>Name</b>
+                </label>
+                <div>{employeeDetail?.username}</div>
               </div>
               <div className="col-lg-4">
-                <div>
-                  <b>Designation:</b> {employeeDetail?.position}
-                </div>
+                <label className="form-label">
+                  <b>Designation:</b>
+                </label>
+                <div>{employeeDetail?.position}</div>
               </div>
               <div className="col-lg-4">
                 <div>
@@ -61,37 +64,69 @@ function ViewUser() {
             </div>
             <div className="row mt-4">
               <div className="col-lg-4">
-                <div><b>Age: </b>{employeeDetail?.dob}</div>
+                <div>
+                  <b>Age: </b>
+                  {employeeDetail?.dob}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div><b>Start Date: </b>{employeeDetail?.startdate}</div>
+                <div>
+                  <b>Start Date: </b>
+                  {employeeDetail?.startdate}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div><b>Salary: </b>{employeeDetail?.salary}</div>
+                <div>
+                  <b>Salary: </b>
+                  {employeeDetail?.salary}
+                </div>
               </div>
             </div>
             <div className="row mt-4">
               <div className="col-lg-4">
-                <div><b>Email Address: </b>{employeeDetail?.email}</div>
+                <div>
+                  <b>Email Address: </b>
+                  {employeeDetail?.email}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div><b>Contact Number: </b>{employeeDetail?.number}</div>
+                <div>
+                  <b>Contact Number: </b>
+                  {employeeDetail?.number}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div><b>Location: </b>{employeeDetail?.location}</div>
+                <div>
+                  <b>Location: </b>
+                  {employeeDetail?.location}
+                </div>
               </div>
             </div>
             <div className="row mt-4">
               <div className="col-lg-4">
-                <div><b>State: </b>{employeeDetail?.state}</div>
+                <div>
+                  <b>State: </b>
+                  {employeeDetail?.state}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div><b>Country: </b>{employeeDetail?.country}</div>
+                <div>
+                  <b>Country: </b>
+                  {employeeDetail?.country}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div><b>ZipCode: </b>{employeeDetail?.zipcode}</div>
+                <div>
+                  <b>ZipCode: </b>
+                  {employeeDetail?.zipcode}
+                </div>
               </div>
             </div>
+          </div>
+          <div className="row">
+            <Link className="btn btn-secondary" to="/portal/user-list">
+              Back
+            </Link>
           </div>
         </div>
       )}
