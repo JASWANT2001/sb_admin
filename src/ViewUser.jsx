@@ -28,7 +28,7 @@ function ViewUser() {
     fetchData();
   }, []);
   return (
-    <div>
+    <>
       {loading ? (
         <div className="d-flex justify-content-center">
           <div className="spinner-border" role="status">
@@ -36,89 +36,93 @@ function ViewUser() {
           </div>
         </div>
       ) : (
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h5 class="m-0 font-weight-bold text-primary">
-              {employeeDetail?.username}'s Details
-            </h5>
-          </div>
-          <div class="card-body">
-            <div className="row">
-              <div className="col-lg-4">
-                <label className="form-label">
-                  <b>Name</b>
-                </label>
-                <div>{employeeDetail?.username}</div>
-              </div>
-              <div className="col-lg-4">
-                <label className="form-label">
-                  <b>Designation:</b>
-                </label>
-                <div>{employeeDetail?.position}</div>
-              </div>
-              <div className="col-lg-4">
-                <div>
-                  <b>Work Place: </b> {employeeDetail?.office}
-                </div>
-              </div>
+        <>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h5 class="m-0 font-weight-bold text-primary">
+                {employeeDetail?.username}'s Details
+              </h5>
             </div>
-            <div className="row mt-4">
-              <div className="col-lg-4">
-                <div>
-                  <b>Age: </b>
-                  {employeeDetail?.dob}
+            <div class="card-body">
+              <div className="row">
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Name</b>
+                  </label>
+                  <div>{employeeDetail?.username}</div>
+                </div>
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Designation</b>
+                  </label>
+                  <div>{employeeDetail?.position}</div>
+                </div>
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Work PLace</b>
+                  </label>
+                  <div>{employeeDetail?.office}</div>
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div>
-                  <b>Start Date: </b>
-                  {employeeDetail?.startdate}
+              <div className="row mt-4">
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Age</b>
+                  </label>
+                  <div>{employeeDetail?.dob}</div>
+                </div>
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Start Date</b>
+                  </label>
+                  <div>{employeeDetail?.startdate}</div>
+                </div>
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Salary</b>
+                  </label>
+                  <div>{employeeDetail?.salary}</div>
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div>
-                  <b>Salary: </b>
-                  {employeeDetail?.salary}
+              <div className="row mt-4">
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Email Address</b>
+                  </label>
+
+                  <div>{employeeDetail?.email}</div>
+                </div>
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Contact Number</b>
+                  </label>
+                  <div>{employeeDetail?.number}</div>
+                </div>
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Location</b>
+                  </label>
+                  <div>{employeeDetail?.location}</div>
                 </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col-lg-4">
-                <div>
-                  <b>Email Address: </b>
-                  {employeeDetail?.email}
+              <div className="row mt-4">
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>State</b>
+                  </label>
+                  <div>{employeeDetail?.state}</div>
                 </div>
-              </div>
-              <div className="col-lg-4">
-                <div>
-                  <b>Contact Number: </b>
-                  {employeeDetail?.number}
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>Country</b>
+                  </label>
+                  <div>{employeeDetail?.country}</div>
                 </div>
-              </div>
-              <div className="col-lg-4">
-                <div>
-                  <b>Location: </b>
-                  {employeeDetail?.location}
-                </div>
-              </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col-lg-4">
-                <div>
-                  <b>State: </b>
-                  {employeeDetail?.state}
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div>
-                  <b>Country: </b>
-                  {employeeDetail?.country}
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div>
-                  <b>ZipCode: </b>
-                  {employeeDetail?.zipcode}
+                <div className="col-lg-4">
+                  <label className="form-label">
+                    <b>ZipCode</b>
+                  </label>
+                  <div>{employeeDetail?.zipcode}</div>
                 </div>
               </div>
             </div>
@@ -128,9 +132,9 @@ function ViewUser() {
               Back
             </Link>
           </div>
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 }
 
