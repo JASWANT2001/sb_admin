@@ -38,52 +38,58 @@ function ViewUser() {
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h5 class="m-0 font-weight-bold text-primary">
-              Hi, {employeeDetail?.username}
+              {employeeDetail?.username}'s Details
             </h5>
           </div>
           <div class="card-body">
             <div className="row">
               <div className="col-lg-4">
-                <div>{employeeDetail?.username}</div>
+                <div>
+                  <b>Name:</b> {employeeDetail?.username}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div>{employeeDetail?.position}</div>
+                <div>
+                  <b>Designation:</b> {employeeDetail?.position}
+                </div>
               </div>
               <div className="col-lg-4">
-                <div>{employeeDetail?.office}</div>
-              </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col-lg-4">
-                <div>{employeeDetail?.dob}</div>
-              </div>
-              <div className="col-lg-4">
-                <div>{employeeDetail?.startdate}</div>
-              </div>
-              <div className="col-lg-4">
-                <div>{employeeDetail?.salary}</div>
+                <div>
+                  <b>Work Place: </b> {employeeDetail?.office}
+                </div>
               </div>
             </div>
             <div className="row mt-4">
               <div className="col-lg-4">
-                <div>{employeeDetail?.email}</div>
+                <div><b>Age: </b>{employeeDetail?.dob}</div>
               </div>
               <div className="col-lg-4">
-                <div>{employeeDetail?.number}</div>
+                <div><b>Start Date: </b>{employeeDetail?.startdate}</div>
               </div>
               <div className="col-lg-4">
-                <div>{employeeDetail?.location}</div>
+                <div><b>Salary: </b>{employeeDetail?.salary}</div>
               </div>
             </div>
             <div className="row mt-4">
               <div className="col-lg-4">
-                <div>{employeeDetail?.state}</div>
+                <div><b>Email Address: </b>{employeeDetail?.email}</div>
               </div>
               <div className="col-lg-4">
-                <div>{employeeDetail?.country}</div>
+                <div><b>Contact Number: </b>{employeeDetail?.number}</div>
               </div>
               <div className="col-lg-4">
-                <div>{employeeDetail?.zipcode}</div>
+                <div><b>Location: </b>{employeeDetail?.location}</div>
+              </div>
+            </div>
+            <div className="row mt-4">
+              <div className="col-lg-4">
+                <div><b>State: </b>{employeeDetail?.state}</div>
+              </div>
+              <div className="col-lg-4">
+                <div><b>Country: </b>{employeeDetail?.country}</div>
+              </div>
+              <div className="col-lg-4">
+                <div><b>ZipCode: </b>{employeeDetail?.zipcode}</div>
               </div>
             </div>
           </div>
