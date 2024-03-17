@@ -2,7 +2,7 @@ import React from "react";
 import { formik, useFormik } from "formik";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { toast, ToastContainer, Bounce } from "react-toastify";
+import { toast, ToastContainer, Flip } from "react-toastify";
 
 function CreateUser() {
   const formik = useFormik({
@@ -73,7 +73,7 @@ function CreateUser() {
 
     onSubmit: async (values, reset) => {
       try {
-        await axios.post("https://sb-admin-backend.onrender.com/", values, {
+        await axios.post("https://easy-puce-tweed-jacket.cyclic.app/employee", values, {
           headers: {
             Authorization: localStorage.getItem("token"),
           },
@@ -81,27 +81,27 @@ function CreateUser() {
         console.log(values);
         toast.success("User Successfully Created", {
           position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
+          autoClose: 1500,
+          hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
           theme: "colored",
-          transition: Bounce,
+          transition: Flip,
         });
         reset.resetForm();
       } catch (error) {
-        toast.danger("User Not Created", {
+        toast.error("User Not Created", {
           position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
+          autoClose: 1500,
+          hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
           theme: "colored",
-          transition: Bounce,
+          transition: Flip,
         });
         console.log(error);
       }
@@ -112,8 +112,8 @@ function CreateUser() {
     <>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
+        autoClose={1500}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
@@ -121,14 +121,14 @@ function CreateUser() {
         draggable
         pauseOnHover
         theme="colored"
-        transition={Bounce}
+        transition={Flip}
       />
       <div className="container-fluid">
         <form onSubmit={formik.handleSubmit}>
           <div className="row">
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <h6 className="h4 mb-0 text-gray-800">Employee Details</h6>
-            </div>
+            </div> */}
           </div>
           <div className="card shadow mb-4 mt-4">
             <div className="card-header py-3">
@@ -323,18 +323,21 @@ function CreateUser() {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-lg-6 mt-4">
+                    <div className="col-lg-6 mt-4 ">
+                      <Link
+                        className="btn btn-secondary btn-icon-split"
+                        to="/portal/user-list"
+                      >
+                        <span class="icon text-white-50">
+                          <i class="fas fa-arrow-left"></i>
+                        </span>
+                        <span class="text">Back</span>
+                      </Link>
+                    </div>
+                    <div className="col-lg-6 mt-4 d-flex justify-content-end">
                       <button className="btn btn-primary" value={"Submit"}>
                         Submit
                       </button>
-                    </div>
-                    <div className="col-lg-6 mt-4 d-flex justify-content-end">
-                      <Link
-                        className="btn btn-secondary"
-                        to="/portal/user-list"
-                      >
-                        Back
-                      </Link>
                     </div>
                   </div>
                 </div>

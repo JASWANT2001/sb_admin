@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formik, useFormik } from "formik";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer, Flip } from "react-toastify";
 import { Link } from "react-router-dom";
 
 function EditUser() {
@@ -76,7 +76,7 @@ function EditUser() {
     onSubmit: async (values) => {
       try {
         await axios.put(
-          `https://sb-admin-backend.onrender.com/${params.id}`,
+          `https://easy-puce-tweed-jacket.cyclic.app/employee/${params.id}`,
           values,
           {
             headers: {
@@ -85,13 +85,29 @@ function EditUser() {
           }
         );
         console.log(values);
-        toast.success("User Successfully Updated", {
+        toast.success(`User Successfully Edited`, {
           position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Flip,
         });
       } catch (error) {
         console.log(error);
-        toast.danger("Something Went Wrong", {
+        toast.error("User Not Edited", {
           position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Flip,
         });
       }
     },
@@ -100,7 +116,7 @@ function EditUser() {
   useEffect(() => {
     async function fetchData() {
       let empData = await axios.get(
-        `https://sb-admin-backend.onrender.com/${params.id}`,
+        `https://easy-puce-tweed-jacket.cyclic.app/employee/${params.id}`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -128,9 +144,9 @@ function EditUser() {
         <div className="container-fluid">
           <form onSubmit={formik.handleSubmit}>
             <div className="row">
-              <div className="col-lg-4">
+              {/* <div className="col-lg-4">
                 <h6 className="h4 mb-0 text-gray-800">Employee Details</h6>
-              </div>
+              </div> */}
             </div>
             <div className="card shadow mb-4 mt-4">
               <div className="card-header py-3">
@@ -218,7 +234,7 @@ function EditUser() {
                         </span>
                       </div>
                     </div>
-                    <div className="row mt-5">
+                    <div className="row mt-4">
                       <div className="col-lg-4">
                         <label>Personal Email</label>
                         <input
@@ -301,18 +317,21 @@ function EditUser() {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-lg-6 mt-4">
+                      <div className="col-lg-6 mt-4 ">
+                        <Link
+                          className="btn btn-secondary btn-icon-split"
+                          to="/portal/user-list"
+                        >
+                          <span class="icon text-white-50">
+                            <i class="fas fa-arrow-left"></i>
+                          </span>
+                          <span class="text">Back</span>
+                        </Link>
+                      </div>
+                      <div className="col-lg-6 mt-4 d-flex justify-content-end">
                         <button className="btn btn-primary" value={"Submit"}>
                           Submit
                         </button>
-                      </div>
-                      <div className="col-lg-6 mt-4 d-flex justify-content-end">
-                        <Link
-                          className="btn btn-secondary"
-                          to="/portal/user-list"
-                        >
-                          Back
-                        </Link>
                       </div>
                     </div>
                   </div>

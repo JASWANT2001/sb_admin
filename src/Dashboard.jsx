@@ -1,8 +1,39 @@
-import React from "react";
+import { useState } from "react";
+import React, { useEffect } from "react";
 import Card from "./Card";
 import Area from "./Area";
+import axios from "axios";
 
 function Dashboard() {
+  const [count, setCount] = useState();
+  const [jobcount, setJobcount] = useState();
+
+  let getData = async () => {
+    try {
+      let primData = await axios.get(
+        "https://easy-puce-tweed-jacket.cyclic.app/employee"
+      );
+      setCount(primData.data.length);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  let jobData = async () => {
+    try {
+      let primData = await axios.get(
+        "https://easy-puce-tweed-jacket.cyclic.app/job"
+      );
+      setJobcount(primData.data.length);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+    jobData();
+  }, []);
+
   return (
     <>
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
@@ -12,10 +43,10 @@ function Dashboard() {
         </button>
       </div>
       <div className="row">
-        <Card text="Earnings (monthly)" rupess="$40,000" />
         <Card text="Earnings (annual)" rupess="$215,000" />
-        <Card text="Task" rupess="50%" />
-        <Card text="pending Request" rupess="18" />
+        <Card text="Earnings (monthly)" rupess="$40,000" />
+        <Card text="Current Employee's" rupess={count} />
+        <Card text="Job Vacancy" rupess={jobcount} />
       </div>
       <div className="row">
         <Area></Area>

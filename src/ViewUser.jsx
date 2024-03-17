@@ -12,7 +12,7 @@ function ViewUser() {
     let fetchData = async () => {
       try {
         let employee = await axios.get(
-          `https://sb-admin-backend.onrender.com/${params.id}`,
+          `https://easy-puce-tweed-jacket.cyclic.app/employee/${params.id}`,
           {
             headers: {
               Authorization: localStorage.getItem("token"),
@@ -37,6 +37,7 @@ function ViewUser() {
         </div>
       ) : (
         <>
+          <br />
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h5 class="m-0 font-weight-bold text-primary">
@@ -47,19 +48,19 @@ function ViewUser() {
               <div className="row">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Full Name</h6>
+                    <b>Full Name</b>
                   </label>
                   <div>{employeeDetail?.username}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Designation</h6>
+                    <b>Designation</b>
                   </label>
                   <div>{employeeDetail?.position}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Work Place </h6>
+                    <b>Work Place</b>
                   </label>
                   <div>{employeeDetail?.office}</div>
                 </div>
@@ -67,19 +68,19 @@ function ViewUser() {
               <div className="row mt-4">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Age</h6>
+                    <b>Age</b>
                   </label>
                   <div>{employeeDetail?.dob}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Start Date</h6>
+                    <b>StartDate</b>
                   </label>
                   <div>{employeeDetail?.startdate}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Salary</h6>
+                    <b>Salary</b>
                   </label>
                   <div>{employeeDetail?.salary}</div>
                 </div>
@@ -87,20 +88,20 @@ function ViewUser() {
               <div className="row mt-4">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Email Address</h6>
+                    <b>Email</b>
                   </label>
 
                   <div>{employeeDetail?.email}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Contact Number</h6>
+                    <b>Number</b>
                   </label>
                   <div>{employeeDetail?.number}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Location</h6>
+                    <b>Location</b>
                   </label>
                   <div>{employeeDetail?.location}</div>
                 </div>
@@ -108,28 +109,35 @@ function ViewUser() {
               <div className="row mt-4">
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">State</h6>
+                    <b>State</b>
                   </label>
                   <div>{employeeDetail?.state}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">Country</h6>
+                    <b>Country</b>
                   </label>
                   <div>{employeeDetail?.country}</div>
                 </div>
                 <div className="col-lg-4">
                   <label className="form-label">
-                    <h6 className="h4 mb-0 text-gray-800">ZipCode</h6>
+                    <b>ZipCode</b>
                   </label>
                   <div>{employeeDetail?.zipcode}</div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="row mb-4">
-            <Link className="btn btn-secondary" to="/portal/user-list">
-              Back
+
+          <div className="row ml-0">
+            <Link
+              className="btn btn-secondary btn-icon-split"
+              to="/portal/user-list"
+            >
+              <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+              </span>
+              <span class="text">Back</span>
             </Link>
           </div>
         </>

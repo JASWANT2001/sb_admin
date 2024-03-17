@@ -2,11 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
-  
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -20,20 +19,53 @@ function Register() {
       if (values.password !== values.repeatPassword) {
         errors.password = "Password and Repeat Password are not same";
       }
+      if (values.email === "") {
+        errors.email = "Required";
+      }
+
+      if (values.lastname === "") {
+        errors.lastname = "Required";
+      }
+
+      if (values.firstname === "") {
+        errors.firstname = "Required";
+      }
+      if (values.password === "") {
+        errors.password = "Required";
+      }
       return errors;
     },
     onSubmit: async (values) => {
       try {
         const registerData = await axios.post(
-          "https://sb-admin-backend.onrender.com/register",
+          "https://easy-puce-tweed-jacket.cyclic.app/register",
           values
         );
         toast.success(registerData.data.message, {
           position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Flip,
         });
         navigate("/");
       } catch (error) {
         console.log(error.response.data.message);
+        toast.error(error.response.data.message, {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Flip,
+        });
       }
     },
   });
@@ -45,9 +77,10 @@ function Register() {
   return (
     <>
       <ToastContainer />
+      <div className="row mt-5"></div>
       <div class="container">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
+        <div class="card o-hidden border-0 shadow-lg my-5 ">
+          <div class="card-body p-0 ">
             <div class="row">
               <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
               <div class="col-lg-7">
@@ -67,7 +100,17 @@ function Register() {
                           value={formik.values.firstname}
                           onChange={formik.handleChange}
                         />
+                        {formik.getFieldMeta("firstname").touched &&
+                        formik.errors.firstname ? (
+                          <span
+                            className="ml-3"
+                            style={{ color: "red", fontSize: 12 }}
+                          >
+                            {formik.errors.firstname}
+                          </span>
+                        ) : null}
                       </div>
+
                       <div class="col-sm-6">
                         <input
                           type="text"
@@ -78,8 +121,18 @@ function Register() {
                           value={formik.values.lastname}
                           onChange={formik.handleChange}
                         />
+                        {formik.getFieldMeta("lastname").touched &&
+                        formik.errors.lastname ? (
+                          <span
+                            className="ml-3"
+                            style={{ color: "red", fontSize: 12 }}
+                          >
+                            {formik.errors.lastname}
+                          </span>
+                        ) : null}
                       </div>
                     </div>
+
                     <div class="form-group">
                       <input
                         type="email"
@@ -90,7 +143,17 @@ function Register() {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                       />
+                      {formik.getFieldMeta("email").touched &&
+                      formik.errors.email ? (
+                        <span
+                          className="ml-3"
+                          style={{ color: "red", fontSize: 12 }}
+                        >
+                          {formik.errors.email}
+                        </span>
+                      ) : null}
                     </div>
+
                     <div class="form-group row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
                         <input
@@ -102,7 +165,17 @@ function Register() {
                           value={formik.values.password}
                           onChange={formik.handleChange}
                         />
+                        {formik.getFieldMeta("password").touched &&
+                        formik.errors.password ? (
+                          <span
+                            className="ml-3"
+                            style={{ color: "red", fontSize: 12 }}
+                          >
+                            {formik.errors.password}
+                          </span>
+                        ) : null}
                       </div>
+
                       <div class="col-sm-6">
                         <input
                           type="password"
@@ -115,7 +188,10 @@ function Register() {
                         />
                         {formik.getFieldMeta("repeatPassword").touched &&
                         formik.errors.password ? (
-                          <span style={{ color: "red", fontSize: 12 }}>
+                          <span
+                            className="ml-3"
+                            style={{ color: "red", fontSize: 12 }}
+                          >
                             {formik.errors.password}
                           </span>
                         ) : null}

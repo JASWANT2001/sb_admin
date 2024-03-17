@@ -3,7 +3,6 @@ import Dashboard from "./Dashboard";
 import UserList from "./UserList";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Routes } from "react-router";
-import Products from "./Products";
 import CreateUser from "./CreateUser";
 import { Link } from "react-router-dom";
 import ViewUser from "./ViewUser";
@@ -11,6 +10,8 @@ import EditUser from "./EditUser";
 import Portal from "./Portal";
 import Login from "./Login";
 import Register from "./Register";
+import JobViewList from "./JobViewList";
+import JobCreate from "./JobCreate";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route path="view-user/:id" element={<ViewUser />} />
           <Route path="create-user" element={<CreateUser />} />
           <Route path="edit-user/:id" element={<EditUser />} />
-          <Route path="products" element={<Products />} />
+          <Route path="jobviewlist" element={<JobViewList />} />
+          <Route path="/portal/jobcreate" element={<JobCreate />} />
         </Route>
       </Routes>
     </BrowserRouter>

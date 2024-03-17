@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer, Flip } from "react-toastify";
 
 function UserList() {
   const [employees, setEmployees] = useState([]);
@@ -9,7 +9,7 @@ function UserList() {
   async function GetData() {
     try {
       const employeeList = await axios.get(
-        "https://sb-admin-backend.onrender.com",
+        "https://easy-puce-tweed-jacket.cyclic.app/employee",
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -20,8 +20,16 @@ function UserList() {
       setLoading(false);
     } catch (error) {
       console.log(error);
-      toast.danger("Something Went Wrong", {
+      toast.error("Something Went Wrong", {
         position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
       });
     }
   }
@@ -31,29 +39,57 @@ function UserList() {
 
   let handleDelete = async (id) => {
     try {
-      await axios.delete(`https://sb-admin-backend.onrender.com/${id}`, {
+      await axios.delete(`https://easy-puce-tweed-jacket.cyclic.app/employee/${id}`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
       });
-      toast.success("User Deleted Successfully", {
+      toast.error("User Deleted Successfully", {
         position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
       });
       GetData();
     } catch (error) {
       console.log(error);
+      toast.error("Something Went Wrong", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+      });
     }
   };
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Flip}
+      />
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 className="h3 mb-0 text-gray-800">Employee Directory</h1>
-        <Link
-          to="/portal/create-user"
-          className="btn btn-primary"
-        >
+        <Link to="/portal/create-user" className="btn btn-primary">
           Create New User
         </Link>
       </div>
@@ -78,12 +114,12 @@ function UserList() {
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Position</th>
-                      <th>Location</th>
+                      <th>Designation</th>
+                      <th>Work Place</th>
                       <th>Age</th>
                       <th>Start date</th>
                       <th>Salary</th>
-                      <th>Action</th>
+                      <th>Action's</th>
                     </tr>
                   </thead>
                   <tbody>

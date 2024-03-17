@@ -2,7 +2,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
@@ -13,21 +13,51 @@ function Login() {
       email: "",
       password: "",
     },
+    validate: (values) => {
+      let errors = {};
+
+      if (values.email === "") {
+        errors.email = "Required";
+      }
+
+      if (values.password === "") {
+        errors.password = "Required";
+      }
+      return errors;
+    },
 
     onSubmit: async (values) => {
       try {
         let response = await axios.post(
-          "https://sb-admin-backend.onrender.com/login",
+          "https://easy-puce-tweed-jacket.cyclic.app/login",
           values
         );
+        // setUser(response.data.loginuser.username);
         toast.success(response.data.message, {
           position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Flip,
         });
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("name", response.data.loginuser.firstname);
         navigate("/portal/dashboard");
       } catch (error) {
         toast.error(error.response.data.message, {
           position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Flip,
         });
       }
     },
@@ -40,7 +70,7 @@ function Login() {
     <>
       <ToastContainer />
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center mt-5">
           <div className="col-xl-10 col-lg-12 col-md-9">
             <div className="card o-hidden border-0 shadow-lg my-5">
               <div className="card-body p-0">
@@ -63,6 +93,15 @@ function Login() {
                             value={LoginForm.values.email}
                             onChange={LoginForm.handleChange}
                           />
+                          {LoginForm.getFieldMeta("email").touched &&
+                          LoginForm.errors.email ? (
+                            <span
+                              className="ml-3"
+                              style={{ color: "red", fontSize: 14 }}
+                            >
+                              {LoginForm.errors.email}
+                            </span>
+                          ) : null}
                         </div>
                         <div className="form-group">
                           <input
@@ -74,6 +113,15 @@ function Login() {
                             value={LoginForm.values.password}
                             onChange={LoginForm.handleChange}
                           />
+                          {LoginForm.getFieldMeta("password").touched &&
+                          LoginForm.errors.password ? (
+                            <span
+                            className="ml-3"
+                              style={{ color: "red", fontSize: 14 }}
+                            >
+                              {LoginForm.errors.password}
+                            </span>
+                          ) : null}
                         </div>
                         <div className="form-group">
                           <div className="custom-control custom-checkbox small">

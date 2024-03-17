@@ -3,7 +3,7 @@ import React from 'react'
 function Card({text,rupess}) {
     return (
         <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card border-left-warning shadow h-100 py-2">
+            <div className="card border-left-primary shadow h-100 py-2">
                 <div className="card-body">
                     <div className="row no-gutters align-items-center">
                         <div className="col mr-2">
