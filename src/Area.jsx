@@ -1,6 +1,7 @@
 import React from "react";
 import Image1 from "./Imges/Revennue.png";
-import areachart from "./Imges/areachart.png";
+// import areachart from "./Imges/areachart.png";
+import areachart from "./Imges/area1.png"
 
 function Area() {
   return (
