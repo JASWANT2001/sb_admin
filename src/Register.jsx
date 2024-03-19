@@ -38,7 +38,7 @@ function Register() {
     onSubmit: async (values) => {
       try {
         const registerData = await axios.post(
-          "https://easy-puce-tweed-jacket.cyclic.app/register",
+          "https://sb-admin-backend.onrender.com/register",
           values
         );
         toast.success(registerData.data.message, {

@@ -4,7 +4,6 @@ import UserList from "./UserList";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Routes } from "react-router";
 import CreateUser from "./CreateUser";
-import { Link } from "react-router-dom";
 import ViewUser from "./ViewUser";
 import EditUser from "./EditUser";
 import Portal from "./Portal";

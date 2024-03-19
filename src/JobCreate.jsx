@@ -46,7 +46,7 @@ function JobCreate() {
     onSubmit: async (values, formikBag) => {
       try {
         await axios.post(
-          "https://easy-puce-tweed-jacket.cyclic.app/job",
+          "https://sb-admin-backend.onrender.com/job",
           values
         );
         toast.success("Job Data Successfully Created", {

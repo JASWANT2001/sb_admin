@@ -11,7 +11,7 @@ function Dashboard() {
   let getData = async () => {
     try {
       let primData = await axios.get(
-        "https://easy-puce-tweed-jacket.cyclic.app/employee"
+        "https://sb-admin-backend.onrender.com/employee"
       );
       setCount(primData.data.length);
     } catch (error) {
@@ -21,7 +21,7 @@ function Dashboard() {
   let jobData = async () => {
     try {
       let primData = await axios.get(
-        "https://easy-puce-tweed-jacket.cyclic.app/job"
+        "https://sb-admin-backend.onrender.com/job"
       );
       setJobcount(primData.data.length);
     } catch (error) {

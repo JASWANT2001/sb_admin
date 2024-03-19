@@ -24,7 +24,7 @@ function JobViewList() {
   async function getJobData() {
     try {
       const jobData = await axios.get(
-        "https://easy-puce-tweed-jacket.cyclic.app/job",
+        "https://sb-admin-backend.onrender.com/job",
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -47,7 +47,7 @@ function JobViewList() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `https://easy-puce-tweed-jacket.cyclic.app/job/${id}`,
+        `https://sb-admin-backend.onrender.com/job/${id}`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),

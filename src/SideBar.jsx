@@ -10,7 +10,7 @@ function SideBar() {
       <a className="sidebar-brand d-flex align-items-center justify-content-center">
         <div className="sidebar-brand-icon rotate-n-15"></div>
 
-        <div className="sidebar-brand-text mx-3">Admin Portal </div>
+        <div className="sidebar-brand-text mx-">Admin Zen Portal </div>
       </a>
 
       <hr className="sidebar-divider my-0" />
