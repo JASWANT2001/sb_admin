@@ -69,9 +69,9 @@ function Login() {
   return (
     <>
       <ToastContainer />
-      <div className="container">
+      <div className="container ">
         <div className="row justify-content-center mt-5">
-          <div className="col-xl-10 col-lg-12 col-md-9">
+          <div className="col-xl-10 col-lg-12 col-md-9 mt-4">
             <div className="card o-hidden border-0 shadow-lg my-5">
               <div className="card-body p-0">
                 <div className="row">
@@ -145,20 +145,20 @@ function Login() {
                           Login
                         </button>
 
-                        <a
+                        {/* <a
                           href="index.html"
                           className="btn btn-google btn-user btn-block"
                         >
                           <i className="fab fa-google fa-fw"></i> Login with
                           Google
-                        </a>
+                        </a> */}
                       </form>
                       <hr />
-                      <div className="text-center">
+                      {/* <div className="text-center">
                         <a className="small" href="forgot-password.html">
                           Forgot Password?
                         </a>
-                      </div>
+                      </div> */}
 
                       <div className="text-center">
                         <button

@@ -205,9 +205,9 @@ function Register() {
                   <br />
                   <hr />
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">
+                    {/* <a class="small" href="forgot-password.html">
                       Forgot Password?
-                    </a>
+                    </a> */}
                   </div>
                   <div class="text-center">
                     <button class="btn btn-link" onClick={alreadyHaveAccount}>

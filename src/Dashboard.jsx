@@ -11,7 +11,12 @@ function Dashboard() {
   let getData = async () => {
     try {
       let primData = await axios.get(
-        "https://sb-admin-backend.onrender.com/employee"
+        "https://sb-admin-backend.onrender.com/employee",
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
       );
       setCount(primData.data.length);
     } catch (error) {
@@ -21,7 +26,12 @@ function Dashboard() {
   let jobData = async () => {
     try {
       let primData = await axios.get(
-        "https://sb-admin-backend.onrender.com/job"
+        "https://sb-admin-backend.onrender.com/job",
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        }
       );
       setJobcount(primData.data.length);
     } catch (error) {
