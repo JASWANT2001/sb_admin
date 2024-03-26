@@ -38,7 +38,7 @@ function Register() {
     onSubmit: async (values) => {
       try {
         const registerData = await axios.post(
-          "https://sb-admin-backend.onrender.com/register",
+          "https://demoexpress-production.up.railway.app/register",
           values
         );
         toast.success(registerData.data.message, {

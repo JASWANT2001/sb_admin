@@ -24,7 +24,7 @@ function JobViewList() {
   async function getJobData() {
     try {
       const jobData = await axios.get(
-        "https://sb-admin-backend.onrender.com/job",
+        "https://demoexpress-production.up.railway.app/job",
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -47,7 +47,7 @@ function JobViewList() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `https://sb-admin-backend.onrender.com/job/${id}`,
+        `https://demoexpress-production.up.railway.app/job/${id}`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),

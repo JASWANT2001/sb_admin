@@ -12,7 +12,7 @@ function ViewUser() {
     let fetchData = async () => {
       try {
         let employee = await axios.get(
-          `https://sb-admin-backend.onrender.com/employee/${params.id}`,
+          `https://demoexpress-production.up.railway.app/employee/${params.id}`,
           {
             headers: {
               Authorization: localStorage.getItem("token"),
