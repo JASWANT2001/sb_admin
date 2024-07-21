@@ -9,7 +9,7 @@ function UserList() {
   async function GetData() {
     try {
       const employeeList = await axios.get(
-        "https://demoexpress-production.up.railway.app/employee",
+        "https://sb-admin-backend.onrender.com/employee",
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -39,7 +39,7 @@ function UserList() {
 
   let handleDelete = async (id) => {
     try {
-      await axios.delete(`https://demoexpress-production.up.railway.app/employee/${id}`, {
+      await axios.delete(`https://sb-admin-backend.onrender.com/employee/${id}`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

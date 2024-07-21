@@ -11,7 +11,7 @@ function Dashboard() {
   let getData = async () => {
     try {
       let primData = await axios.get(
-        "https://demoexpress-production.up.railway.app/employee",
+        "https://sb-admin-backend.onrender.com/employee",
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -26,7 +26,7 @@ function Dashboard() {
   let jobData = async () => {
     try {
       let primData = await axios.get(
-        "https://demoexpress-production.up.railway.app/job",
+        "https://sb-admin-backend.onrender.com/job",
         {
           headers: {
             Authorization: localStorage.getItem("token"),

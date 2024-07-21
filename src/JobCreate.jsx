@@ -45,10 +45,11 @@ function JobCreate() {
     },
     onSubmit: async (values, formikBag) => {
       try {
-        await axios.post(
-          "https://demoexpress-production.up.railway.app/job",
-          values
-        );
+        await axios.post("https://sb-admin-backend.onrender.com/job", values, {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        });
         toast.success("Job Data Successfully Created", {
           position: "top-center",
           autoClose: 1500,

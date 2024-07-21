@@ -76,7 +76,7 @@ function EditUser() {
     onSubmit: async (values) => {
       try {
         await axios.put(
-          `https://demoexpress-production.up.railway.app/employee/${params.id}`,
+          `https://sb-admin-backend.onrender.com/employee/${params.id}`,
           values,
           {
             headers: {
@@ -116,7 +116,7 @@ function EditUser() {
   useEffect(() => {
     async function fetchData() {
       let empData = await axios.get(
-        `https://demoexpress-production.up.railway.app/employee/${params.id}`,
+        `https://sb-admin-backend.onrender.com/employee/${params.id}`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),
