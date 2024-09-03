@@ -82,7 +82,18 @@ function Register() {
         <div class="card o-hidden border-0 shadow-lg my-5 ">
           <div class="card-body p-0 ">
             <div class="row">
-              <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+              <div class="col-lg-5 d-none d-lg-block bg-register-image">
+                <img
+                  src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?t=st=1725328089~exp=1725331689~hmac=7fb9e37b9696d1d8f00489e012dfc84438ea1fcaced0b221062b7d2dcef57645&w=740"
+                  alt=""
+                  style={{
+                    width: "430px",
+                    height: "440px",
+                    marginLeft: "40px",
+                    marginTop: "20px",
+                  }}
+                />
+              </div>
               <div class="col-lg-7">
                 <div class="p-5">
                   <div class="text-center">

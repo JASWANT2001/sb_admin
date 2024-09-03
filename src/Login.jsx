@@ -75,11 +75,22 @@ function Login() {
             <div className="card o-hidden border-0 shadow-lg my-5">
               <div className="card-body p-0">
                 <div className="row">
-                  <div className="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                  <div className="col-lg-6 d-none d-lg-block bg-login-image">
+                    <img
+                      src="https://img.freepik.com/free-vector/security-concept-illustration_114360-497.jpg?t=st=1725328051~exp=1725331651~hmac=7d015128ad90758047f921e58e2c1528a31821af028ca1bc14cba5c8d9febea0&w=740"
+                      alt=""
+                      style={{
+                        width: "400px",
+                        height: "370px",
+                        marginLeft: "60px",
+                        marginTop: "25px",
+                      }}
+                    />
+                  </div>
                   <div className="col-lg-6">
                     <div className="p-5">
                       <div className="text-center">
-                        <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                        <h4 className="text-gray-700 mb-4">Welcome To Admin Zen</h4>
                       </div>
                       <form className="user" onSubmit={LoginForm.handleSubmit}>
                         <div className="form-group">
@@ -88,7 +99,7 @@ function Login() {
                             className="form-control form-control-user"
                             id="exampleInputEmail"
                             aria-describedby="emailHelp"
-                            placeholder="Enter Email Address..."
+                            placeholder="Enter Email Address"
                             name="email"
                             value={LoginForm.values.email}
                             onChange={LoginForm.handleChange}
@@ -116,7 +127,7 @@ function Login() {
                           {LoginForm.getFieldMeta("password").touched &&
                           LoginForm.errors.password ? (
                             <span
-                            className="ml-3"
+                              className="ml-3"
                               style={{ color: "red", fontSize: 14 }}
                             >
                               {LoginForm.errors.password}
